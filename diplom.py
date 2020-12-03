@@ -120,14 +120,14 @@ class YaDAPI:
                                          params={"path": "/" + str(uf) + "/" + photo.name, "url": photo.url},
                                          headers={"Authorization": self.auth})
                 d = json.loads(response.text)
-                print(response.text)
+                #print(response.text)
                 while True:
                     response2 = requests.get(d["href"], headers={"Authorization": self.auth}).json()
                     print("Ожидайте...")
                     time.sleep(1)
-                    print(response2)
+                    #print(response2)
                     if response2["status"] == "success":
-                        print(response2)
+                        #print(response2)
                         print(f"Фотография '{photo.name}' загружена")
                         logs.append({"file_name": photo.name, "size": photo.size_type})
                         break
